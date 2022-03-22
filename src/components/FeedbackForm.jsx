@@ -37,10 +37,11 @@ const FeedbackForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim().length > 10) {
+      const newfeedback = { text, rating };
       if (feedbackEdit.edit === true) {
-        updateFeedback(feedbackEdit.item.id, { text, rating });
+        updateFeedback(feedbackEdit.item.id, newfeedback);
       } else {
-        onAddFeedback({ text, rating });
+        onAddFeedback(newfeedback);
       }
       setRating(10);
       setBtnDisabled(true);
